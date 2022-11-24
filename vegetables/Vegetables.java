@@ -7,6 +7,7 @@ public class Vegetables {
     protected double Calories;
     public String Type;
 
+    public Vegetables(){}
     public Vegetables(String name, double calories, String type) {
         Name = name;
         Calories = calories;
