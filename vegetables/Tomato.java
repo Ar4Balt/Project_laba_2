@@ -1,6 +1,6 @@
 package by.Ar4Balt.tunnikov.project_laba_2.vegetables;
 
-public class Tomato extends Vegetables{
+public class Tomato extends Vegetables {
     public Tomato() {
         super("Tomato", 19, 100);
     }

@@ -1,5 +1,6 @@
 package by.Ar4Balt.tunnikov.project_laba_2.vegetables;
 
+import by.Ar4Balt.tunnikov.project_laba_2.data_files.WriteToTheFile;
 import by.Ar4Balt.tunnikov.project_laba_2.salad.PrintAndCreateSalad;
 
 import java.util.ArrayList;
@@ -13,15 +14,9 @@ public class PrintAndCreateVegetables {
 //        }
         vegetables.add(new Broccoli());
         vegetables.add(new Cabbage());
-//        for (int i = 0; i < vegetables.size(); i++) {
-//            System.out.println(i + "): \n"
-//                    + vegetables.get(i));
-//        }
-        PrintAndCreateSalad salad = new PrintAndCreateSalad(vegetables);
 
+        PrintAndCreateSalad printAndCreateSalad = new PrintAndCreateSalad(vegetables);
+        WriteToTheFile file = new WriteToTheFile(vegetables);
     }
-
-
-
 
 }
