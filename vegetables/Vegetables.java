@@ -1,65 +1,47 @@
 package by.Ar4Balt.tunnikov.project_laba_2.vegetables;
 
-import java.util.Objects;
-
 public class Vegetables {
-    public String Name;
-    protected double Calories;
-    public String Type;
+    private String Type;
+    private double Calories;
+    private int Grammes;
 
     public Vegetables(){}
-    public Vegetables(String name, double calories, String type) {
-        Name = name;
-        Calories = calories;
+    public Vegetables(String type, double calories, int grammes) {
         Type = type;
+        Calories = calories;
+        Grammes = grammes;
     }
-    public Vegetables(Vegetables filling1, Vegetables filling2, String Name){
-        this.Name = Name;
+    public Vegetables(Vegetables filling1, Vegetables filling2, String type){
+        this.Type = type;
         this.Calories = filling1.Calories + filling2.Calories + 19.7f;
-    }
-    public Vegetables(String Name, double Calories){
-        this.Name = Name;
-        this.Calories = Calories;
     }
     public Vegetables(String Name){
     }
-    public Vegetables(double Calories){
-        this("Anything", Calories);
-    }
 
-    public void setName(String Name){
-        this.Name = Name;
+    public String getType() {
+        return Type;
     }
-    public String getName(){
-        return Name;
+    public void setType(String type) {
+        Type = type;
     }
-    public void setCalories(double Calories){
-        this.Calories = Calories;
-    }
-    public double getCalories(){
+    public double getCalories() {
         return Calories;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Vegetables)) return false;
-        Vegetables food = (Vegetables) o;
-        return Double.compare(food.getCalories(), getCalories()) == 0 && Objects.equals(getName(), food.getName());
+    public void setCalories(double calories) {
+        Calories = calories;
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName(), getCalories());
+    public double getGrammes() {
+        return Grammes;
     }
-
-    public void consume(){
-        System.out.println(this);
-
+    public void setGrammes(int grammes) {
+        Grammes = grammes;
     }
 
     @Override
     public String toString() {
-        return "Food " + Type + " " + Name + " has been eating";
+        return "Type: " + Type + "\n"
+                + "Calories: " + Calories + "\n"
+                + "Grammes: " + Grammes + ";\n";
     }
+
 }
