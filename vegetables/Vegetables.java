@@ -39,7 +39,7 @@ public class Vegetables {
 
     @Override
     public String toString() {
-        return "Type: " + Type + "\n"
+        return "\nType: " + Type + "\n"
                 + "Calories: " + Calories + "\n"
                 + "Grammes: " + Grammes + ";\n";
     }
