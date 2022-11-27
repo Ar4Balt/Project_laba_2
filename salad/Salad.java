@@ -52,8 +52,8 @@ public class Salad {
     @Override
     public String toString() {
         return "Salad: \n" +
-                "SaladName='" + SaladName + '\n' +
-                "SaladCalories=" + SaladCalories + '\n' +
-                "IngredientsForSalad=" + IngredientsForSalad;
+                "SaladName = " + SaladName + '\n' +
+                "SaladCalories = " + SaladCalories + '\n' +
+                "IngredientsForSalad: \n" + IngredientsForSalad;
     }
 }
