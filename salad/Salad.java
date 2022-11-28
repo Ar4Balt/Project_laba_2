@@ -5,11 +5,13 @@ import by.Ar4Balt.tunnikov.project_laba_2.vegetables.*;
 import java.util.ArrayList;
 
 public class Salad {
-    private String SaladName;
+    private static String SaladName;
     private double SaladCalories;
     private ArrayList<Vegetables> IngredientsForSalad;
 
     public Salad() {
+        SaladName = "No name";
+        IngredientsForSalad = null;
     }
 
     public Salad(String saladName, double saladCalories) {
@@ -31,7 +33,7 @@ public class Salad {
         return SaladName;
     }
 
-    public void setSaladName(String saladName) {
+    public static void setSaladName(String saladName) {
         SaladName = saladName;
     }
 
@@ -62,8 +64,8 @@ public class Salad {
     @Override
     public String toString() {
         return "Salad: \n" +
+                "IngredientsForSalad: \n" + IngredientsForSalad + '\n' +
                 "SaladName = " + SaladName + '\n' +
-                "SaladCalories = " + SaladCalories + '\n' +
-                "IngredientsForSalad: \n" + IngredientsForSalad;
+                "SaladCalories = " + SaladCalories;
     }
 }
