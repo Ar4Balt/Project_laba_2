@@ -5,7 +5,7 @@ import by.Ar4Balt.tunnikov.project_laba_2.vegetables.*;
 import java.util.ArrayList;
 
 public class Salad {
-    private static String SaladName;
+    private String SaladName;
     private double SaladCalories;
     private ArrayList<Vegetables> IngredientsForSalad;
 
@@ -28,12 +28,17 @@ public class Salad {
         IngredientsForSalad = ingredientsForSalad;
         SaladCalories = caloriAccount(IngredientsForSalad);
     }
+    public Salad(ArrayList<Vegetables> ingredientsForSalad, String saladName) {
+        SaladName = saladName;
+        IngredientsForSalad = ingredientsForSalad;
+        SaladCalories = caloriAccount(IngredientsForSalad);
+    }
 
     public String getSaladName() {
         return SaladName;
     }
 
-    public static void setSaladName(String saladName) {
+    public void setSaladName(String saladName) {
         SaladName = saladName;
     }
 

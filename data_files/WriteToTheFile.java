@@ -12,15 +12,11 @@ public class WriteToTheFile {
     public WriteToTheFile() {
     }
 
-    public WriteToTheFile(ArrayList<Vegetables> vegetables) {
-        Salad salad = new Salad(vegetables);
-        /*
-        * You need to change the path or remove it altogether
-        * */
-        String thePathToTheFile = "D:\\VS Code\\Programms\\Java\\Project_laba_2" +
-                "\\src\\by\\Ar4Balt\\tunnikov\\project_laba_2\\data_files\\";
+    public WriteToTheFile(ArrayList<Vegetables> vegetables, String nameSalad) {
+        Salad salad = new Salad(vegetables, nameSalad);
         try {
-            File fileSalad = new File(thePathToTheFile + "dataSaladFile.txt");
+            File fileSalad = new File("dataSaladFile.txt");
+
             if (!fileSalad.exists()) {
                 fileSalad.createNewFile();
             }
@@ -31,7 +27,7 @@ public class WriteToTheFile {
             System.out.println("Error: " + error);
         }
         try {
-            File fileVegetables = new File(thePathToTheFile + "dataVegetablesFile.txt");
+            File fileVegetables = new File("dataVegetablesFile.txt");
             if (!fileVegetables.exists()) {
                 fileVegetables.createNewFile();
             }

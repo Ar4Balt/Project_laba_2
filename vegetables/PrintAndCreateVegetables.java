@@ -2,7 +2,6 @@ package by.Ar4Balt.tunnikov.project_laba_2.vegetables;
 
 import by.Ar4Balt.tunnikov.project_laba_2.data_files.WriteToTheFile;
 import by.Ar4Balt.tunnikov.project_laba_2.salad.PrintAndCreateSalad;
-import by.Ar4Balt.tunnikov.project_laba_2.salad.Salad;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -12,6 +11,8 @@ import java.util.Scanner;
 public class PrintAndCreateVegetables {
     ArrayList<Vegetables> vegetables = new ArrayList<Vegetables>();
     PrintAndCreateSalad printAndCreateSalad;
+    String nameSalad = null;
+
     public PrintAndCreateVegetables() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -33,7 +34,7 @@ public class PrintAndCreateVegetables {
                 fencing();
 
                 if (choose == 0) {
-                    printAndCreateSalad = new PrintAndCreateSalad(vegetables);
+                    printAndCreateSalad = new PrintAndCreateSalad(vegetables, nameSalad, true);
                     break;
                 }
                 if (choose == 1) {
@@ -66,36 +67,41 @@ public class PrintAndCreateVegetables {
                         System.out.println("You added ingredients to the salad!");
                         displayingAListOfSelectedVegetables();
                     }
+                    continue;
                 }
                 if (choose == 2) {
                     System.out.print("Enter the number of vegetables: ");
                     choose = scanner.nextInt();
-                    for (int i = 0; i < choose; i++) {
+                    for (int i = 0; i < choose + 1; i++) {
                         chooseFromAListOfVegetables(9);
                     }
                     displayingAListOfSelectedVegetables();
+                    continue;
                 }
                 if (choose == 3) {
                     for (int i = 0; i < 8; i++) {
                         chooseFromAListOfVegetables(i + 1);
                     }
                     displayingAListOfSelectedVegetables();
+                    continue;
                 }
                 if (choose == 4) {
                     System.out.print("Choose the name of the salad: ");
-                    String nameSalad = scanner.next();
-                    Salad.setSaladName(nameSalad);
+                    nameSalad = scanner.next();
+                    printAndCreateSalad = new PrintAndCreateSalad(vegetables, nameSalad, false);
+                    continue;
                 }
                 if (choose == 5) {
-                    WriteToTheFile file = new WriteToTheFile(vegetables);
+                    WriteToTheFile file = new WriteToTheFile(vegetables, nameSalad);
+                    continue;
                 }
                 if (choose == 6) {
-
-                }
-                else {
+                    printAndCreateSalad = new PrintAndCreateSalad(vegetables, nameSalad, true);
+                    continue;
+                } else {
                     System.out.println("No such option!!!");
                 }
-            }catch (InputMismatchException error) {
+            } catch (InputMismatchException error) {
                 System.out.println("Error: you didn't enter a number");
 
             }
@@ -137,6 +143,11 @@ public class PrintAndCreateVegetables {
     void displayingAListOfSelectedVegetables() {
         for (int i = 0; i < vegetables.size(); i++) {
             System.out.println("* " + vegetables.get(i).getType());
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
